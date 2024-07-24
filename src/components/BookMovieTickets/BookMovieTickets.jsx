@@ -63,12 +63,22 @@ const BookMovieTickets = () => {
               key={seat.id}
               className="selected-seat rounded-md bg-gray-400 text-black mx-2 px-3 py-1"
             >
-              {seat.id} - {seat.price}₫
+              {seat.id} -{" "}
+              {seat.price.toLocaleString("vi", {
+                style: "currency",
+                currency: "VND",
+              })}
             </div>
           ))}
         </div>
         <div className="total-price text-center space-y-3">
-          <h3 className="">Total price: {totalPrice}₫</h3>
+          <h3 className="">
+            Total price:{" "}
+            {totalPrice.toLocaleString("vi", {
+              style: "currency",
+              currency: "VND",
+            })}
+          </h3>
           <button onClick={handleBuyTicket} className="buy-ticket">
             Buy Ticket
           </button>
